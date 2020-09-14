@@ -1,0 +1,18 @@
+<div class="container">
+
+  <div class="content">
+    <a href="estabelecimentos/editar/{{estabelecimento.id}}" *ngFor="let estabelecimento of estabelecimentos">
+      <img src={{estabelecimento.picture}} alt="">
+      <div class="">
+        <div>
+          <strong>{{estabelecimento.name}}</strong>
+          <p>{{estabelecimento.index}}</p>
+        </div>
+        <p>{{estabelecimento.address}}</p>
+      </div>
+    </a>
+
+
+  </div>
+
+</div>
