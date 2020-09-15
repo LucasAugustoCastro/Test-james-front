@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { EstabelecimentosService } from 'src/app/service';
+
+import { EstabelecimentosService } from '../service';
+import { Estabelecimento } from '../shared';
 
 @Component({
   selector: 'app-listar-estabelicimentos',
@@ -8,7 +10,7 @@ import { EstabelecimentosService } from 'src/app/service';
 })
 export class ListarEstabelicimentosComponent implements OnInit {
 
-  estabelecimentos: Array<any>;
+  estabelecimentos: Array<Estabelecimento>;
 
   constructor(private estabelecimentosService: EstabelecimentosService) { }
 
@@ -16,8 +18,17 @@ export class ListarEstabelicimentosComponent implements OnInit {
     this.listar();
   }
 
-  listar() {
-    this.estabelecimentosService.get().subscribe(response => this.estabelecimentos = response);
+  async listar() {
+    const existEstabelecimento = localStorage['estabelecimentos'];
+    if(!existEstabelecimento){
+      this.estabelecimentosService.get().subscribe(response => {
+        this.estabelecimentos = response
+        localStorage['estabelecimentos'] = JSON.stringify(response)
+      });
+    }else{
+
+      this.estabelecimentos = JSON.parse(localStorage['estabelecimentos'])
+    }
   }
 
 }

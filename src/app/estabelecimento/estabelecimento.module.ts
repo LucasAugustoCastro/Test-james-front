@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { ListarEstabelicimentosComponent  } from './listar';
-import { EstabelecimentosService } from '../service';
+import { EstabelecimentosService } from './service';
 import { EditarEstabelecimentoComponent } from './editar';
 
 

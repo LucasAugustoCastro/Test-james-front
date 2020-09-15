@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="content">
+  <div class="content" *ngIf= "estabelecimentos">
     <a href="estabelecimentos/editar/{{estabelecimento.id}}" *ngFor="let estabelecimento of estabelecimentos">
       <img src={{estabelecimento.picture}} alt="">
       <div class="">

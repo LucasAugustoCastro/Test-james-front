@@ -1,9 +1,9 @@
 
 <div class="container">
-  <div >
+  <div *ngIf= "estabelecimento"  >
     <div class="content">
       <div class="header">
-        <a href="/"><i data-feather="arrow-left"></i></a>
+        <a href="/"><img src="assets/arrow-left.svg" alt="arrow-left"></a>
         <img src="{{estabelecimento.picture}}" alt="{{estabelecimento.name}}">
 
         <div>
@@ -14,7 +14,7 @@
       </div>
 
 
-      <div class="body">
+      <form class="body" #formEstabelecimento="ngForm">
 
 
         <div >
@@ -23,19 +23,36 @@
           <div class="informacoes">
             <div>
               <label for="nome">Nome</label>
-              <input type="text" name="nome" id="nome">
+              <input
+                type="text"
+                name="nome"
+                id="nome"
+                [(ngModel)]="estabelecimento.name"
+                >
             </div>
 
 
             <div>
               <label for="cidade">Cidade</label>
-              <input type="text" name="cidade" id="cidade">
+              <input
+                type="text"
+                name="cidade"
+                id="cidade"
+                [(ngModel)]="estabelecimento.city"
+
+                >
 
             </div>
 
             <div>
-              <label for="enderco">Endereço</label>
-              <input type="text" name="enderco" id="enderco">
+              <label for="endereco">Endereço</label>
+              <input
+                type="text"
+                name="endereco"
+                id="endereco"
+                [(ngModel)]="estabelecimento.address"
+
+                >
             </div>
 
           </div>
@@ -50,19 +67,37 @@
         <div class="informacoes">
           <div>
             <label for="banco">Banco</label>
-            <input type="text" name="banco" id="banco">
+            <input
+              type="text"
+              name="banco"
+              id="banco"
+              [(ngModel)]="estabelecimento.bank"
+
+              >
           </div>
 
 
           <div>
             <label for="tipo_conta">Tipo de conta</label>
-            <input type="text" name="tipo_conta" id="tipo_conta">
+            <input
+              type="text"
+              name="tipo_conta"
+              id="tipo_conta"
+              [(ngModel)]="estabelecimento.typeAccount"
+
+              >
 
           </div>
 
           <div>
             <label for="cpf">CPF/CNPJ</label>
-            <input type="text" name="cpf" id="cpf">
+            <input
+              type="text"
+              name="cpf"
+              id="cpf"
+              [(ngModel)]="estabelecimento.cpfCnpj"
+
+              >
           </div>
 
         </div>
@@ -70,26 +105,46 @@
         <div class="informacoes">
           <div>
             <label for="agencia">Agência</label>
-            <input type="text" name="agencia" id="agencia">
+            <input
+              type="text"
+              name="agencia"
+              id="agencia"
+              [(ngModel)]="estabelecimento.agency"
+
+            >
 
           </div>
 
           <div>
             <label for="conta">Conta</label>
-            <input type="text" name="conta" id="conta">
+            <input
+              type="text"
+              name="conta"
+              id="conta"
+              [(ngModel)]="estabelecimento.account"
+
+            >
           </div>
 
           <div>
             <label for="saque">Saque automático</label>
-            <input type="saque" name="saque" id="saque">
+            <input
+              type="saque"
+              name="saque"
+              id="saque"
+              [(ngModel)]="estabelecimento.saque"
+
+            >
           </div>
 
         </div>
 
         </div>
 
-        <button>Salvar</button>
-      </div>
+        <button
+        (click) = "update()"
+        >Salvar</button>
+      </form>
     </div>
   </div>
 </div>

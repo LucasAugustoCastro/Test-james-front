@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Estabelecimento } from '../shared';
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,14 @@ export class EstabelecimentosService {
   constructor(private http: HttpClient) { }
 
   get() {
-    return this.http.get<any[]>(`${this.estabelecimentosUrl}`)
+    return this.http.get<Estabelecimento[]>(`${this.estabelecimentosUrl}`)
   }
 
   getById(id:string) {
-    return this.http.get<any[]>(`${this.estabelecimentosUrl}/${id}`)
+    return this.http.get<Estabelecimento>(`${this.estabelecimentosUrl}/${id}`)
+  }
+
+  update(estabelecimento: Estabelecimento){
+    return this.http.put<Estabelecimento>(`${this.estabelecimentosUrl}`, estabelecimento)
   }
 }

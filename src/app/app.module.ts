@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { EstabelecimentoModule } from './estabelecimento';
-import { EstabelecimentosService } from './service'
+import { EstabelecimentosService } from './estabelecimento'
 
 @NgModule({
   declarations: [
